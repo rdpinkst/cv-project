@@ -1,12 +1,9 @@
-import { Component } from "react"
+import React from "react"
 
-class SkillsOutput extends Component{
-    render(){
-        const {outputSkills} = this.props;
-        return (
-            <p>{outputSkills[0].value}</p>
-        )
-    }
+function SkillsOutput({ outputSkills }){
+    return (
+        <p>{outputSkills[0].value}</p>
+    )
 }
 
 export default SkillsOutput
