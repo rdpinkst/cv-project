@@ -64,7 +64,11 @@ hr{
   margin-top: 1rem;
 }
 
-.add-education, .add-work, .add-skill, .submit, .delete-education, .delete-skill, .delete-work{
+.skill-contain{
+  gap: 0.25rem;
+}
+
+.add-education, .add-work, .add-skill, .submit, .delete-education, .delete-skill, .delete-work, .print-cv{
   margin-right: 2rem;
   margin-top: 0.5rem;
   background-color: #333333;
@@ -75,6 +79,7 @@ hr{
   font-size: 1em;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  width: 8rem;
 }
 
 input{
@@ -156,9 +161,33 @@ input:focus{
   margin: 0.75rem;
 }
 
-.skills-output{
+.skills-output, .print-button{
   margin: 0 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
+}
+
+.print-cv{
+  margin: 0 4rem;
+  align-items: flex-start;
+  
+}
+
+@media print {
+  @page {
+    size: portrait;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .section-to-print, .section-to-print * {
+    visibility: visible;
+  }
+  .section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+  }
 }

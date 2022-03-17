@@ -1,5 +1,6 @@
 import { Component } from "react";
 import uniqid from "uniqid";
+import  ReactToPrint  from "react-to-print";
 import PersonalInfo from "./components/PersonalInfo";
 import EducationInfo from "./components/EducationInfo";
 import WorkExperience from "./components/WorkExperience";
@@ -334,9 +335,19 @@ class App extends Component {
                 />
               );
             })}
+            <ReactToPrint 
+            trigger = {() => {
+
+              return <button className = "print-cv" type="button">Print</button>
+            }}
+            content = {() => this.componentRef}
+            pageStyle = "print"
+            
+          
+          />
           </form>
 
-          <div className="cv-output">
+          <div className="cv-output section-to-print" ref= {el => (this.componentRef = el)}>
             <div className="personal-output">
               <div>
                 <h1 className="name-output">
@@ -374,6 +385,15 @@ class App extends Component {
             })}
             </div>
           </div>
+          {/* <ReactToPrint 
+            trigger = {() => {
+
+              return <button className = "print-cv">Print</button>
+            }}
+            content = {() => this.componentRef}
+            pageStyle = "print"
+          
+          /> */}
         </div>
       </div>
     );
