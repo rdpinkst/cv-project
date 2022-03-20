@@ -68,7 +68,7 @@ hr{
   gap: 0.25rem;
 }
 
-.add-education, .add-work, .add-skill, .submit, .delete-education, .delete-skill, .delete-work, .print-cv{
+.add-education, .add-work, .add-skill, .submit, .delete-education, .delete-skill, .delete-work, .print-cv, .clear-form{
   margin-right: 2rem;
   margin-top: 0.5rem;
   background-color: #333333;
@@ -80,6 +80,7 @@ hr{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   width: 8rem;
+  cursor: pointer;
 }
 
 input{
@@ -168,8 +169,8 @@ input:focus{
   grid-template-rows: auto;
 }
 
-.print-cv{
-  margin: 0 4rem;
+.print-cv, .clear-form{
+  margin: 0.5rem 4rem;
   align-items: flex-start;
   
 }
@@ -186,8 +187,10 @@ input:focus{
   }
   .section-to-print {
     position: absolute;
+    margin-top: 0;
     left: 0;
     top: 0;
     width: 100vw;
+    height: 90vh;
   }
 }

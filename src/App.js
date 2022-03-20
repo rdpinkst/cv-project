@@ -263,6 +263,121 @@ class App extends Component {
     });
   };
 
+  clearForm = () => {
+    this.setState(()=> {
+      return (
+        {
+          personalData: [
+            [
+              {
+                label: "First Name",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              { label: "Last Name", typeInput: "text", value: "", id: uniqid() },
+              {
+                label: "Current Title",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              {
+                label: "Location",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              {
+                label: "Email",
+                typeInput: "email",
+                value: "",
+                id: uniqid(),
+              },
+              {
+                label: "Phone Number",
+                typeInput: "tel",
+                value: "",
+                id: uniqid(),
+              },
+            ],
+          ],
+          educationData: [
+            [
+              {
+                label: "School or University Name",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              { label: "City", typeInput: "text", value: "", id: uniqid() },
+              { label: "State", typeInput: "text", value: "", id: uniqid() },
+              {
+                label: "Attended From",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              { label: "Attended To", typeInput: "text", value: "", id: uniqid() },
+              {
+                label: "Degree of Study",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+            ],
+          ],
+          workData: [
+            [
+              {
+                label: "Company Name",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              {
+                label: "City",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              { label: "State", typeInput: "text", value: "", id: uniqid() },
+              {
+                label: "Start Date",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              {
+                label: "End Date",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+              {
+                label: "Position",
+                typeInput: "text",
+                value: "",
+                id: uniqid(),
+              },
+            ],
+          ],
+          textArea: [
+            [
+              {
+                value: "",
+                id: uniqid(),
+              },
+            ],
+          ],
+          skillsData: [
+            [{ label: "Skills", typeInput: "text", value: "", id: uniqid() }],
+          ],
+        }
+      )
+    })
+  }
+
   render() {
     const { personalData, educationData, workData, skillsData, textArea } =
       this.state;
@@ -345,6 +460,7 @@ class App extends Component {
             
           
           />
+          <button className="clear-form" type="button" onClick={this.clearForm}>Clear Form</button>
           </form>
 
           <div className="cv-output section-to-print" ref= {el => (this.componentRef = el)}>
@@ -385,15 +501,6 @@ class App extends Component {
             })}
             </div>
           </div>
-          {/* <ReactToPrint 
-            trigger = {() => {
-
-              return <button className = "print-cv">Print</button>
-            }}
-            content = {() => this.componentRef}
-            pageStyle = "print"
-          
-          /> */}
         </div>
       </div>
     );
